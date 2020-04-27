@@ -1,0 +1,37 @@
+﻿@model ProjeCv.Models.Class1
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>TITLE</th>
+            <th>SUBTITLE</th>
+            <th>DATE</th>
+            <th>DESCRİPTİON</th>
+            <th>DELETE</th>
+            <th>UPDATE</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model.exp)
+        {
+            <tr>
+                <th>@x.Id</th>
+                <td>@x.Title</td>
+                <td>@x.Subtitle</td>
+                <td>@x.Date</td>
+                <td>@x.Description</td>
+                <td><a href="/Experience/Delete/@x.Id" class="btn btn-danger" onclick="return confirm('Are u sure to delete this experience?')">Delete</a></td>
+                <th><a href="/Experience/List/@x.Id" class="btn btn-success">Update</a></th>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Experience/Ekle" class="btn btn-outline-dark"> Add new experience to your CV</a>
+

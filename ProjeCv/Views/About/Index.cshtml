@@ -1,0 +1,37 @@
+﻿@model ProjeCv.Models.Class1
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>SURNAME</th>
+            <th>ADDRESS</th>
+            <th>PHONE</th>
+            <th>EMAİL</th>
+            @*<th>ABOUT</th>*@
+            <th>UPDATE</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.about)
+        {
+            <tr>
+                <th>@item.Id</th>
+                <td>@item.Name</td>
+                <td>@item.Surname</td>
+                <td>@item.Address</td>
+                <td>@item.Phone</td>
+                <td>@item.Email</td>
+                @*<td>@item.About</td>*@
+                <td><a href="/About/List/@item.Id" class="btn btn-warning">Update</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+

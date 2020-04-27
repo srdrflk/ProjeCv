@@ -1,0 +1,38 @@
+﻿@model ProjeCv.Models.Class1
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>TITLE</th>
+            <th>SUBTITLE</th>
+            <th>DATE</th>
+            <th>DEPARTMENT</th>
+            <th>GPA</th>
+            <th>DELETE</th>
+            <th>UPDATE</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model.edu)
+        {
+        <tr>
+            <th>@x.Id</th>
+            <td>@x.Title</td>
+            <td>@x.Subtitle</td>
+            <td>@x.Date</td>
+            <td>@x.Department</td>
+            <td>@x.GPA</td>
+            <td><a href="/Education/Delete/@x.Id" class="btn btn-danger" onclick="return confirm('Are u sure to delete this Education?')">Delete</a></td>
+            <td><a href="/Education/List/@x.Id" class="btn btn-success">Update</a></td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Education/Ekle" class="btn btn-dark">Add New Education</a>
+

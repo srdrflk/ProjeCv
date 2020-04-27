@@ -1,0 +1,30 @@
+﻿@model ProjeCv.Models.Class1
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>INTERESTS</th>
+            <th>DELETE</th>
+            <th>UPDATE</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model.interest)
+        {
+            <tr>
+                <th>@x.Id</th>
+                <td>@x.Interest</td>
+                <td><a href="/Interests/Delete/@x.Id" class="btn btn-danger" onclick="return confirm('Are u sure to delete this interest?')">Delete</a></td>
+                <td><a href="/Interests/List/@x.Id" class="btn btn-success">Update</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Interests/Ekle" class="btn btn-dark">Add new interest</a>
+
